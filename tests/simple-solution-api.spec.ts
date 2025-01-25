@@ -12,7 +12,7 @@ test('get order with correct id should receive code 200', async ({ request }) =>
   expect(response.status()).toBe(200)
 })
 
-test('post order with correct data should receive code 201', async ({ request }) => {
+test('post order withcorrect data should receive code 201', async ({ request }) => {
   // prepare request body
   const requestBody = {
     status: 'OPEN',
