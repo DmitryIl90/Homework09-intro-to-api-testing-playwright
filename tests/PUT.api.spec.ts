@@ -22,7 +22,7 @@ test('Order was updated successfully with valid API key and id and return status
   expect(response.status()).toBe(StatusCodes.OK);
 })
 
-test('Order was updated unsuccessfully with valid API key and invalid id and return status code Not Found', async  ({ request }) => {
+test('Order was updated unsuccessfully with valid API key and invalid id and return status code Bad Request', async  ({ request }) => {
   const requestHeaders ={
     api_key: '1234567890123456',
   }
