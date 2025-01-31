@@ -2,8 +2,10 @@ import { expect, test } from '@playwright/test'
 
 import { StatusCodes } from 'http-status-codes'
 
-test('Order was deleted successfully with an exists id and valid API key and return status code NO_CONTENT', async  ({ request }) => {
-  const requestHeaders ={
+test('Order was deleted successfully with an exists id and valid API key and return status code NO_CONTENT', async ({
+  request,
+}) => {
+  const requestHeaders = {
     api_key: '1234567890123456',
   }
   const requestBody = {
@@ -17,27 +19,30 @@ test('Order was deleted successfully with an exists id and valid API key and ret
   const response = await request.delete('https://backend.tallinn-learning.ee/test-orders/1', {
     headers: requestHeaders,
     data: requestBody,
-  });
-  expect(response.status()).toBe(StatusCodes.NO_CONTENT);
+  })
+  expect(response.status()).toBe(StatusCodes.NO_CONTENT)
 })
 
-test('Order was deleted unsuccessfully with a non-existent order with a valid API key and return status code BAD REQUEST', async ({ request }) => {
+test('Order was deleted unsuccessfully with a non-existent order with a valid API key and return status code BAD REQUEST', async ({
+  request,
+}) => {
   const requestHeaders = {
     api_key: '1234567890123456',
-  };
+  }
   const response = await request.delete('https://backend.tallinn-learning.ee/test-orders/199', {
     headers: requestHeaders,
-  });
-  expect(response.status()).toBe(StatusCodes.BAD_REQUEST);
-});
+  })
+  expect(response.status()).toBe(StatusCodes.BAD_REQUEST)
+})
 
-test('Order was deleted with invalid API key and return status code UNAUTHORIZED', async ({ request }) => {
+test('Order was deleted with invalid API key and return status code UNAUTHORIZED', async ({
+  request,
+}) => {
   const requestHeaders = {
     api_key: 'invalid-api-key',
-  };
+  }
   const response = await request.delete('https://backend.tallinn-learning.ee/test-orders/1', {
     headers: requestHeaders,
-  });
-  expect(response.status()).toBe(StatusCodes.UNAUTHORIZED);
-});
-
+  })
+  expect(response.status()).toBe(StatusCodes.UNAUTHORIZED)
+})
