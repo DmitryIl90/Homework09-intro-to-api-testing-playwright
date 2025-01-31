@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test'
 
 import { StatusCodes } from 'http-status-codes'
 
-test('post order with correct data should receive code 201', async ({ request }) => {
+test('Successful authorization with correct data should receive code 200', async ({ request }) => {
   // prepare request body
   const requestBody = {
     username: 'qweqwe',

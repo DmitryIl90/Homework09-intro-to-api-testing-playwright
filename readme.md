@@ -28,4 +28,7 @@ UNAUTHORIZED
 status code OK
 | 2 | Unsuccessful login with invalid username and password and      | 400 (Bad request)  |                | Failed |
 return status code BAD REQUEST
+| 3 | Successful authorization with correct data should receive      | 200 (OK)           |                | Passed |
+code OK
+
 
