@@ -47,6 +47,9 @@ test('Order was updated unsuccessfully with valid API key and invalid id and ret
 test('Order was updated unsuccessfully with missing API key and return status code Unauthorized', async ({
   request,
 }) => {
+  const requestHeaders = {
+    api_key: '',
+  }
   const requestBody = {
     status: 'OPEN',
     courierId: 0,
@@ -56,6 +59,7 @@ test('Order was updated unsuccessfully with missing API key and return status co
     id: 3,
   }
   const response = await request.put('https://backend.tallinn-learning.ee/test-orders/1', {
+    headers: requestHeaders,
     data: requestBody,
   })
   expect(response.status()).toBe(StatusCodes.UNAUTHORIZED)
