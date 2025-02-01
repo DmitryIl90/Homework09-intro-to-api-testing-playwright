@@ -1,36 +1,43 @@
-import { ResponseLoan} from './ResponseLoan'
+import { ResponseLoan } from './ResponseLoan'
 
 export class LoanDto {
-  income: number;
-  debt: number;
-  age: number;
-  employed: boolean;
-  loanAmount: number;
-  loanPeriod: number;
+  income: number
+  debt: number
+  age: number
+  employed: boolean
+  loanAmount: number
+  loanPeriod: number
 
-  constructor(income: number, debt: number, age: number, employed: boolean, loanAmount: number, loanPeriod: number) {
-    this.income = income;
-    this.debt = debt;
-    this.age = age;
-    this.employed = employed;
-    this.loanAmount = loanAmount;
-    this.loanPeriod = loanPeriod;
+  constructor(
+    income: number,
+    debt: number,
+    age: number,
+    employed: boolean,
+    loanAmount: number,
+    loanPeriod: number,
+  ) {
+    this.income = income
+    this.debt = debt
+    this.age = age
+    this.employed = employed
+    this.loanAmount = loanAmount
+    this.loanPeriod = loanPeriod
   }
 
   static generateValidLowRisk(): LoanDto {
-    return new LoanDto(10000, 100, 20, true, 100, 12,)
+    return new LoanDto(10000, 100, 20, true, 100, 12)
   }
 
   static generateValidMediumRisk(): any {
-    return new LoanDto(10000, 0, 20, true, 500, 0,)
+    return new LoanDto(10000, 0, 20, true, 500, 0)
   }
 
   static generateValidHighRisk(): any {
-    return new LoanDto(10000, 0, 17, true, 50000, 6,)
+    return new LoanDto(10000, 0, 17, true, 50000, 6)
   }
 
   static generateNegativeVeryHighRisk(): any {
-    return new LoanDto(10, 100, 30, true, 10, 6,)
+    return new LoanDto(10, 100, 30, true, 10, 6)
   }
 
   static generateNegativeDecisionYongCustomerLoanDto(): LoanDto {
@@ -49,6 +56,5 @@ export class LoanDto {
       json.applicationId,
       json.riskDecision,
     )
-
   }
 }

@@ -35,11 +35,11 @@ code OK
 
 ## | # | Name of test | Response Code | Test data | Status |
 
-| 1 | Successful decision of loan with correct data and Low Risk should receive code 200    | 200 (OK) |  | Passed |
-| 2 | Successful decision of loan with correct data and Medium Risk should receive code 200 | 200 (OK) |  | Failed |
-| 3 | Successful decision of loan with correct data and High Risk should receive code 200   | 200 (OK) |  | Passed |
-| 4 | Unsuccessful decision of loan with correct data and Very High Risk should receive     | 200 (OK) |  | Passed |
+| 1 | Successful decision of loan with correct data and Low Risk should receive code 200 | 200 (OK) | | Passed |
+| 2 | Successful decision of loan with correct data and Medium Risk should receive code 200 | 200 (OK) | | Failed |
+| 3 | Successful decision of loan with correct data and High Risk should receive code 200 | 200 (OK) | | Passed |
+| 4 | Unsuccessful decision of loan with correct data and Very High Risk should receive | 200 (OK) | | Passed |
 code 200
-| 5 | Unsuccessful decision of loan for Young Customer and Very High Risk should receive    | 200 (OK) |  | Passed |
+| 5 | Unsuccessful decision of loan for Young Customer and Very High Risk should receive | 200 (OK) | | Passed |
 code 200
-| 6 | Unsuccessful decision of loan with empty data should receive code 400             | 400 (Bad request) |  | Failed |
+| 6 | Unsuccessful decision of loan with empty data should receive code 400 | 400 (Bad request) | | Failed |

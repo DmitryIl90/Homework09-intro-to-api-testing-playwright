@@ -1,10 +1,13 @@
 import { expect, test } from '@playwright/test'
 
-import { StatusCodes} from 'http-status-codes'
+import { StatusCodes } from 'http-status-codes'
 import { LoanDto } from './DTO/LoanDto'
 
-test('Successful decision of loan with correct data and Low Risk should receive code 200', async ({ request, }) => {
-  const response = await request.post('https://backend.tallinn-learning.ee/api/loan-calc/decision',
+test('Successful decision of loan with correct data and Low Risk should receive code 200', async ({
+  request,
+}) => {
+  const response = await request.post(
+    'https://backend.tallinn-learning.ee/api/loan-calc/decision',
     {
       data: LoanDto.generateValidLowRisk(),
     },
@@ -21,8 +24,11 @@ test('Successful decision of loan with correct data and Low Risk should receive 
   expect.soft(responseBody.riskDecision).toBe('positive')
 })
 
-test('Successful decision of loan with correct data and Medium Risk should receive code 200', async ({ request, }) => {
-  const response = await request.post('https://backend.tallinn-learning.ee/api/loan-calc/decision',
+test('Successful decision of loan with correct data and Medium Risk should receive code 200', async ({
+  request,
+}) => {
+  const response = await request.post(
+    'https://backend.tallinn-learning.ee/api/loan-calc/decision',
     {
       data: LoanDto.generateValidMediumRisk(),
     },
@@ -39,8 +45,12 @@ test('Successful decision of loan with correct data and Medium Risk should recei
   expect.soft(responseBody.riskDecision).toBe('positive')
 })
 
-test('Successful decision of loan with correct data and High Risk should receive code 200', async ({ request }) => {
-  const response = await request.post('https://backend.tallinn-learning.ee/api/loan-calc/decision', {
+test('Successful decision of loan with correct data and High Risk should receive code 200', async ({
+  request,
+}) => {
+  const response = await request.post(
+    'https://backend.tallinn-learning.ee/api/loan-calc/decision',
+    {
       data: LoanDto.generateValidHighRisk(),
     },
   )
@@ -56,8 +66,12 @@ test('Successful decision of loan with correct data and High Risk should receive
   expect.soft(responseBody.riskDecision).toBe('positive')
 })
 
-test('Unsuccessful decision of loan with correct data and Very High Risk should receive code 200', async ({ request }) => {
-  const response = await request.post('https://backend.tallinn-learning.ee/api/loan-calc/decision', {
+test('Unsuccessful decision of loan with correct data and Very High Risk should receive code 200', async ({
+  request,
+}) => {
+  const response = await request.post(
+    'https://backend.tallinn-learning.ee/api/loan-calc/decision',
+    {
       data: LoanDto.generateNegativeVeryHighRisk(),
     },
   )
@@ -73,8 +87,12 @@ test('Unsuccessful decision of loan with correct data and Very High Risk should 
   expect.soft(responseBody.riskDecision).toBe('negative')
 })
 
-test('Unsuccessful decision of loan for Young Customer and Very High Risk should receive code 200', async ({ request }) => {
-  const response = await request.post('https://backend.tallinn-learning.ee/api/loan-calc/decision', {
+test('Unsuccessful decision of loan for Young Customer and Very High Risk should receive code 200', async ({
+  request,
+}) => {
+  const response = await request.post(
+    'https://backend.tallinn-learning.ee/api/loan-calc/decision',
+    {
       data: LoanDto.generateNegativeDecisionYongCustomerLoanDto(),
     },
   )
@@ -90,8 +108,12 @@ test('Unsuccessful decision of loan for Young Customer and Very High Risk should
   expect.soft(responseBody.riskDecision).toBe('negative')
 })
 
-test('Unsuccessful decision of loan with empty data should receive code 400', async ({ request }) => {
-  const response = await request.post('https://backend.tallinn-learning.ee/api/loan-calc/decision', {
+test('Unsuccessful decision of loan with empty data should receive code 400', async ({
+  request,
+}) => {
+  const response = await request.post(
+    'https://backend.tallinn-learning.ee/api/loan-calc/decision',
+    {
       data: LoanDto.generateEmptyLoanDto(),
     },
   )
@@ -102,7 +124,3 @@ test('Unsuccessful decision of loan with empty data should receive code 400', as
   expect.soft(responseBody.riskScore).not.toBeUndefined()
   expect.soft(responseBody.riskDecision).toBeUndefined()
 })
-
-
-
-
