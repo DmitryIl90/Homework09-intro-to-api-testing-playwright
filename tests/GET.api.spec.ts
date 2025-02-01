@@ -15,10 +15,10 @@ test('Unsuccessful login with invalid username and password and return status co
   request,
 }) => {
   const requestBody = {
-    username: '@',
-    password: '#',
+    username: '',
+    password: '',
   }
-  const response = await request.get('https://backend.tallinn-learning.ee/test-orders/1',{
+  const response = await request.get('https://backend.tallinn-learning.ee/test-orders/1', {
     data: requestBody,
   })
   console.log('response body:', await response.json())
