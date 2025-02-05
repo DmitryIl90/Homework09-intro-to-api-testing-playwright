@@ -8,12 +8,14 @@ test.describe('Login tests', async () => {
       data: LoginDto.createLoginWithCorrectData(),
     })
 
-    expect(/^eyJhb[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+$/.test(await response.text())).toBeTruthy()
+    expect(
+      /^eyJhb[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+$/.test(await response.text()),
+    ).toBeTruthy()
     expect(response.status()).toBe(StatusCodes.OK)
   })
 })
 
-test('Unsuccessful method test', async ({request}) => {
+test('Unsuccessful method test', async ({ request }) => {
   const response = await request.get('https://backend.tallinn-learning.ee/login/student', {
     data: LoginDto.createLoginWithCorrectData(),
   })
