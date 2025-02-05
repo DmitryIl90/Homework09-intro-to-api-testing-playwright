@@ -1,4 +1,4 @@
-name: Login tests
+name: Login and Methods tests
 
 on:
   push:
@@ -47,4 +47,4 @@ jobs:
         run: |
           echo "Running Playwright to execute API tests..."
           npx playwright test tests/Login.spec.ts
-          npx playwright test tests/LoginNegative.spec.ts
+          

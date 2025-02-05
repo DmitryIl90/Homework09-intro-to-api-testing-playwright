@@ -15,8 +15,35 @@ test.describe('Login tests', async () => {
   })
 })
 
-test('Unsuccessful method test', async ({ request }) => {
+test('Unsuccessful method test GET', async ({ request }) => {
   const response = await request.get('https://backend.tallinn-learning.ee/login/student', {
+    data: LoginDto.createLoginWithCorrectData(),
+  })
+
+  console.log(await response.text())
+  expect(response.status()).toBe(StatusCodes.METHOD_NOT_ALLOWED)
+})
+
+test('Unsuccessful method test PUT', async ({ request }) => {
+  const response = await request.put('https://backend.tallinn-learning.ee/login/student', {
+    data: LoginDto.createLoginWithCorrectData(),
+  })
+
+  console.log(await response.text())
+  expect(response.status()).toBe(StatusCodes.METHOD_NOT_ALLOWED)
+})
+
+test('Unsuccessful method test PATCH', async ({ request }) => {
+  const response = await request.patch('https://backend.tallinn-learning.ee/login/student', {
+    data: LoginDto.createLoginWithCorrectData(),
+  })
+
+  console.log(await response.text())
+  expect(response.status()).toBe(StatusCodes.METHOD_NOT_ALLOWED)
+})
+
+test('Unsuccessful method test DELETE', async ({ request }) => {
+  const response = await request.delete('https://backend.tallinn-learning.ee/login/student', {
     data: LoginDto.createLoginWithCorrectData(),
   })
 
