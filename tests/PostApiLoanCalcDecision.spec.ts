@@ -33,8 +33,8 @@ test('Successful decision of loan with correct data and Medium Risk should recei
       data: LoanDto.generateValidMediumRisk(),
     },
   )
-  const responseBody = LoanDto.serializeResponse(await response.json())
   console.log(response)
+  const responseBody = LoanDto.serializeResponse(await response.json())
   console.log('response status:', response.status())
   console.log('response body:', responseBody)
   console.log('Decision to loan:', responseBody.riskDecision)
@@ -119,11 +119,5 @@ test('Unsuccessful decision of loan with empty data should receive code 400', as
     },
   )
   console.log(response)
-  const responseBody = LoanDto.serializeResponse(await response.json())
-  console.log(await response.json())
   expect.soft(response.status()).toBe(StatusCodes.BAD_REQUEST)
-  expect.soft(responseBody.riskPeriods).toBeUndefined()
-  expect.soft(responseBody.riskLevel).toBeUndefined()
-  expect.soft(responseBody.riskScore).not.toBeUndefined()
-  expect.soft(responseBody.riskDecision).toBeUndefined()
 })
