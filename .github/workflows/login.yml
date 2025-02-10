@@ -42,8 +42,6 @@ jobs:
         env:
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
-          USERNAME_NEGATIVE: ${{ secrets.USERNAME_NEGATIVE }}
-          PASSWORD_NEGATIVE: ${{ secrets.PASSWORD_NEGATIVE }}
         run: |
           echo "Running Playwright to execute API tests..."
           npx playwright test tests/Login.spec.ts
