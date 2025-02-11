@@ -29,7 +29,7 @@ export class LoanDto {
   }
 
   static generateValidMediumRisk(): any {
-    return new LoanDto(10000, 0, 20, true, 500, 0)
+    return new LoanDto(10000, 0, 20, true, 500, 6)
   }
 
   static generateValidHighRisk(): any {

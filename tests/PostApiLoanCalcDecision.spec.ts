@@ -27,13 +27,13 @@ test('Successful decision of loan with correct data and Low Risk should receive 
 test('Successful decision of loan with correct data and Medium Risk should receive code 200', async ({
   request,
 }) => {
+  console.log(LoanDto.generateValidMediumRisk())
   const response = await request.post(
     'https://backend.tallinn-learning.ee/api/loan-calc/decision',
     {
       data: LoanDto.generateValidMediumRisk(),
     },
   )
-  console.log(response)
   const responseBody = LoanDto.serializeResponse(await response.json())
   console.log('response status:', response.status())
   console.log('response body:', responseBody)
