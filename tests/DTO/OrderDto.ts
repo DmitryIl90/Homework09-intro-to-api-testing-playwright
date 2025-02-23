@@ -32,12 +32,7 @@ export class OrderDto {
   }
 
   static generateOrderDtoWithoutStatus(): OrderDto {
-    return new OrderDto(
-      'OPEN',
-      'David',
-      '4852345235',
-      'no comment',
-    )
+    return new OrderDto('OPEN', 'David', '4852345235', 'no comment')
   }
 
   static generateEmptyOrderDto(): any {
