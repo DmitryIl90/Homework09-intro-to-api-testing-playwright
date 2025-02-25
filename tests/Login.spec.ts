@@ -74,14 +74,11 @@ test.describe('Login tests', async () => {
       },
     })
     const createdOrder = OrderDto.serializeResponse(await responseCreateOrder.json())
-    const deleteOrder = await request.delete(
-      `https://backend.tallinn-learning.ee/orders/${createdOrder.id}`,
-      {
+    const deleteOrder = await request.delete(`https://backend.tallinn-learning.ee/orders/${createdOrder.id}`, {
         headers: {
           Authorization: `Bearer ${await responseLogin.text()}`,
         },
-      },
-    )
+      },)
     expect(deleteOrder.status()).toBe(StatusCodes.OK)
   })
 })
