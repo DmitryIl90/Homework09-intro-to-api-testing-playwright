@@ -5,7 +5,7 @@ import { OrderDto } from './DTO/OrderDto'
 
 test.describe('Login tests', async () => {
   test('TL-12-1 Successful authorization', async ({ request }) => {
-    LoginDto.createLoginWithCorrectData()
+    console.log(LoginDto.createLoginWithCorrectData())
     const response = await request.post(`https://backend.tallinn-learning.ee/login/student`, {
       data: LoginDto.createLoginWithCorrectData(),
     })
