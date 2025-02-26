@@ -4,5 +4,4 @@ export type ResponseLoan = {
   riskPeriods: number
   applicationId: string
   riskDecision: string
-  }
-
+}

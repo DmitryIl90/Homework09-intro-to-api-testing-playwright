@@ -50,11 +50,11 @@ export class LoanDto {
 
   static serializeResponse(json: any): ResponseLoan {
     return {
-      riskScore:json?.riskScore,
-      riskLevel:json?.riskLevel,
-      riskPeriods:json?.riskPeriods,
-      applicationId:json?.applicationId,
-      riskDecision:json?.riskDecision,
+      riskScore: json?.riskScore,
+      riskLevel: json?.riskLevel,
+      riskPeriods: json?.riskPeriods,
+      applicationId: json?.applicationId,
+      riskDecision: json?.riskDecision,
     }
   }
 }
