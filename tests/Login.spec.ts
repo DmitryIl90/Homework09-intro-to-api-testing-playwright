@@ -11,6 +11,9 @@ test.describe('Login tests', async () => {
     })
 
     console.log(await response.text())
+    expect(
+      /^eyJhb[A-Za-z0-9-]+.[A-Za-z0-9-]+.[A-Za-z0-9-_]+$/.test(await response.text()),
+    ).toBeTruthy()
     expect(response.status()).toBe(StatusCodes.OK)
   })
 
