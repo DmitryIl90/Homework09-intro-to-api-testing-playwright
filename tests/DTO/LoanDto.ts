@@ -29,7 +29,7 @@ export class LoanDto {
   }
 
   static generateValidMediumRisk(): any {
-    return new LoanDto(10000, 0, 20, true, 500, 0)
+    return new LoanDto(10000, 0, 20, true, 500, 6)
   }
 
   static generateValidHighRisk(): any {
@@ -49,12 +49,12 @@ export class LoanDto {
   }
 
   static serializeResponse(json: any): ResponseLoan {
-    return new ResponseLoan(
-      json.riskScore,
-      json.riskLevel,
-      json.riskPeriods,
-      json.applicationId,
-      json.riskDecision,
-    )
+    return {
+      riskScore: json?.riskScore,
+      riskLevel: json?.riskLevel,
+      riskPeriods: json?.riskPeriods,
+      applicationId: json?.applicationId,
+      riskDecision: json?.riskDecision,
+    }
   }
 }
