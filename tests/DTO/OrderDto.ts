@@ -35,6 +35,10 @@ export class OrderDto {
     return new OrderDto('OPEN', 'David', '4852345235', 'no comment')
   }
 
+  static generateOrderDtoWithoutId(): OrderDto {
+    return new OrderDto('OPEN', 'David', '', 'no comment')
+  }
+
   static generateEmptyOrderDto(): any {
     return {}
   }
