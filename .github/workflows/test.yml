@@ -1,4 +1,4 @@
-name: Default
+name: Login without api
 
 on:
   push:
@@ -44,4 +44,4 @@ jobs:
           PASSWORD: ${{ secrets.PASSWORD }}
         run: |
           echo "Running Playwright to execute API tests..."
-          npx playwright test
+          npx playwright test tests

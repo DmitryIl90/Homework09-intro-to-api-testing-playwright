@@ -9,7 +9,7 @@ test.describe('Login tests', async () => {
     })
 
     expect(
-      /^eyJhb[A-Za-z0-9-]+.[A-Za-z0-9-]+.[A-Za-z0-9-_]+$/.test(await response.text()),
+      /^eyJhb[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+$/.test(await response.text()),
     ).toBeTruthy()
     expect(response.status()).toBe(StatusCodes.OK)
   })
